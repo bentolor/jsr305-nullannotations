@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="lib" path="lib/compile/findbugs-annotations-2.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/compile/findbugs-jsr305-2.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/compile/idea-annotations.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
