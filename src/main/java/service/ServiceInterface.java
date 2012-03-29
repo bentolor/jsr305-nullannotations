@@ -1,7 +1,7 @@
 package service;
 
 import javax.annotation.Nonnull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 /**
  * Sample Interface to demonstrate software defect annotations.
