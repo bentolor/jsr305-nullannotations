@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="2.0.0" sequence="0" timestamp="1333032369468" analysisTimestamp="1333032494375" release="">
+  <Project projectName="findbugs-project">
+    <Jar>lib\compile\eclipse-annotations.jar</Jar>
+    <Jar>lib\compile\findbugs-annotations-2.0.0.jar</Jar>
+    <Jar>lib\compile\findbugs-jsr305-2.0.0.jar</Jar>
+    <Jar>lib\compile\idea-annotations.jar</Jar>
+    <Jar>target\classes</Jar>
+    <SrcDir>src\main\java</SrcDir>
+  </Project>
+  <BugInstance type="NP_NONNULL_PARAM_VIOLATION" priority="1" abbrev="NP" category="CORRECTNESS">
+    <Class classname="client.ServiceCaller">
+      <SourceLine classname="client.ServiceCaller" sourcefile="ServiceCaller.java" sourcepath="client/ServiceCaller.java"/>
+    </Class>
+    <Method classname="client.ServiceCaller" name="doWork" signature="(Lservice/ServiceInterface;)V" isStatic="false">
+      <SourceLine classname="client.ServiceCaller" start="17" end="30" startBytecode="0" endBytecode="137" sourcefile="ServiceCaller.java" sourcepath="client/ServiceCaller.java"/>
+    </Method>
+    <Method classname="service.ServiceInterface" name="nonnullableFunction" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="service.ServiceInterface" sourcefile="ServiceInterface.java" sourcepath="service/ServiceInterface.java"/>
+    </Method>
+    <Int value="1" role="INT_NULL_ARG"/>
+    <LocalVariable name="result" register="2" pc="11" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="client.ServiceCaller" start="21" end="21" startBytecode="12" endBytecode="12" sourcefile="ServiceCaller.java" sourcepath="client/ServiceCaller.java"/>
+  </BugInstance>
+  <BugInstance type="NP_NULL_PARAM_DEREF_ALL_TARGETS_DANGEROUS" priority="2" abbrev="NP" category="CORRECTNESS">
+    <Class classname="client.ServiceCaller">
+      <SourceLine classname="client.ServiceCaller" sourcefile="ServiceCaller.java" sourcepath="client/ServiceCaller.java"/>
+    </Class>
+    <Method classname="client.ServiceCaller" name="doWork" signature="(Lservice/ServiceInterface;)V" isStatic="false">
+      <SourceLine classname="client.ServiceCaller" start="17" end="30" startBytecode="0" endBytecode="137" sourcefile="ServiceCaller.java" sourcepath="client/ServiceCaller.java"/>
+    </Method>
+    <Method classname="service.ServiceInterface" name="aFunction" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="service.ServiceInterface" sourcefile="ServiceInterface.java" sourcepath="service/ServiceInterface.java"/>
+    </Method>
+    <SourceLine classname="client.ServiceCaller" start="17" end="17" startBytecode="2" endBytecode="2" sourcefile="ServiceCaller.java" sourcepath="client/ServiceCaller.java"/>
+    <Int value="1" role="INT_NULL_ARG"/>
+    <Method classname="client.ServiceCaller$MyService" name="aFunction" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" role="METHOD_DANGEROUS_TARGET_ACTUAL_GUARANTEED_NULL">
+      <SourceLine classname="client.ServiceCaller$MyService" start="47" end="47" startBytecode="0" endBytecode="56" sourcefile="ServiceCaller.java" sourcepath="client/ServiceCaller.java"/>
+    </Method>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.MONOMORPHIC_CALL_SITE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ACTUAL_PARAMETER_GUARANTEED_NULL" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ALL_DANGEROUS_TARGETS" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullArgumentWarningProperty.ARG_DEFINITELY_NULL" value="true"/>
+  </BugInstance>
+  <BugInstance type="NP_PARAMETER_MUST_BE_NONNULL_BUT_MARKED_AS_NULLABLE" priority="2" abbrev="NP" category="STYLE">
+    <Class classname="client.ServiceCaller$MyService">
+      <SourceLine classname="client.ServiceCaller$MyService" sourcefile="ServiceCaller.java" sourcepath="client/ServiceCaller.java"/>
+    </Class>
+    <Method classname="client.ServiceCaller$MyService" name="nullableFunction" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="client.ServiceCaller$MyService" start="36" end="36" startBytecode="0" endBytecode="56" sourcefile="ServiceCaller.java" sourcepath="client/ServiceCaller.java"/>
+    </Method>
+    <LocalVariable name="parameter" register="1" pc="0" role="LOCAL_VARIABLE_NAMED"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 29 Mar 2012 16:46:09 +0200" total_classes="97" referenced_classes="131" total_bugs="3" total_size="298" num_packages="10" vm_version="20.4-b02" cpu_seconds="11.58" clock_seconds="142.33" peak_mbytes="57.74" alloc_mbytes="742.44" gc_seconds="0.42" priority_2="2" priority_1="1">
+    <PackageStats package="client" total_bugs="3" total_types="2" total_size="22" priority_2="2" priority_1="1">
+      <ClassStats class="client.ServiceCaller" sourceFile="ServiceCaller.java" interface="false" size="13" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="client.ServiceCaller$MyService" sourceFile="ServiceCaller.java" interface="false" size="9" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="edu.umd.cs.findbugs.annotations" total_bugs="0" total_types="24" total_size="102">
+      <ClassStats class="edu.umd.cs.findbugs.annotations.CheckForNull" sourceFile="CheckForNull.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.CheckReturnValue" sourceFile="CheckReturnValue.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.CleanupObligation" sourceFile="CleanupObligation.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.Confidence" sourceFile="Confidence.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.CreatesObligation" sourceFile="CreatesObligation.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.DefaultAnnotation" sourceFile="DefaultAnnotation.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.DefaultAnnotationForFields" sourceFile="DefaultAnnotationForFields.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.DefaultAnnotationForMethods" sourceFile="DefaultAnnotationForMethods.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.DefaultAnnotationForParameters" sourceFile="DefaultAnnotationForParameters.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.DesireNoWarning" sourceFile="DesireNoWarning.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.DesireWarning" sourceFile="DesireWarning.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.DischargesObligation" sourceFile="DischargesObligation.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.ExpectWarning" sourceFile="ExpectWarning.java" interface="true" size="5" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.NoWarning" sourceFile="NoWarning.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.NonNull" sourceFile="NonNull.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.Nullable" sourceFile="Nullable.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.OverrideMustInvoke" sourceFile="OverrideMustInvoke.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.PossiblyNull" sourceFile="PossiblyNull.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.Priority" sourceFile="Priority.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.ReturnValuesAreNonnullByDefault" sourceFile="ReturnValuesAreNonnullByDefault.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.SuppressFBWarnings" sourceFile="SuppressFBWarnings.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.SuppressWarnings" sourceFile="SuppressWarnings.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.UnknownNullness" sourceFile="UnknownNullness.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="edu.umd.cs.findbugs.annotations.When" sourceFile="When.java" interface="false" size="12" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="javax.annotation" total_bugs="0" total_types="23" total_size="76">
+      <ClassStats class="javax.annotation.CheckForNull" sourceFile="CheckForNull.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.CheckForSigned" sourceFile="CheckForSigned.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.CheckReturnValue" sourceFile="CheckReturnValue.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="javax.annotation.Detainted" sourceFile="Detainted.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.MatchesPattern" sourceFile="MatchesPattern.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="javax.annotation.MatchesPattern$Checker" sourceFile="MatchesPattern.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="javax.annotation.Nonnegative" sourceFile="Nonnegative.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="javax.annotation.Nonnegative$Checker" sourceFile="Nonnegative.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="javax.annotation.Nonnull" sourceFile="Nonnull.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="javax.annotation.Nonnull$Checker" sourceFile="Nonnull.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="javax.annotation.Nullable" sourceFile="Nullable.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.OverridingMethodsMustInvokeSuper" sourceFile="OverridingMethodsMustInvokeSuper.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.ParametersAreNonnullByDefault" sourceFile="ParametersAreNonnullByDefault.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.PropertyKey" sourceFile="PropertyKey.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="javax.annotation.RegEx" sourceFile="RegEx.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="javax.annotation.RegEx$Checker" sourceFile="RegEx.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="javax.annotation.Signed" sourceFile="Signed.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.Syntax" sourceFile="Syntax.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="javax.annotation.Tainted" sourceFile="Tainted.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.Untainted" sourceFile="Untainted.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="javax.annotation.WillClose" sourceFile="WillClose.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.WillCloseWhenClosed" sourceFile="WillCloseWhenClosed.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.WillNotClose" sourceFile="WillNotClose.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="javax.annotation.concurrent" total_bugs="0" total_types="4" total_size="5">
+      <ClassStats class="javax.annotation.concurrent.GuardedBy" sourceFile="GuardedBy.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="javax.annotation.concurrent.Immutable" sourceFile="Immutable.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.concurrent.NotThreadSafe" sourceFile="NotThreadSafe.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.concurrent.ThreadSafe" sourceFile="ThreadSafe.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="javax.annotation.meta" total_bugs="0" total_types="7" total_size="24">
+      <ClassStats class="javax.annotation.meta.Exclusive" sourceFile="Exclusive.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.meta.Exhaustive" sourceFile="Exhaustive.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.meta.TypeQualifier" sourceFile="TypeQualifier.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="javax.annotation.meta.TypeQualifierDefault" sourceFile="TypeQualifierDefault.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="javax.annotation.meta.TypeQualifierNickname" sourceFile="TypeQualifierNickname.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="javax.annotation.meta.TypeQualifierValidator" sourceFile="TypeQualifierValidator.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="javax.annotation.meta.When" sourceFile="When.java" interface="false" size="15" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="net.jcip.annotations" total_bugs="0" total_types="4" total_size="5">
+      <ClassStats class="net.jcip.annotations.GuardedBy" sourceFile="GuardedBy.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="net.jcip.annotations.Immutable" sourceFile="Immutable.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="net.jcip.annotations.NotThreadSafe" sourceFile="NotThreadSafe.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="net.jcip.annotations.ThreadSafe" sourceFile="ThreadSafe.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.eclipse.jdt.annotation" total_bugs="0" total_types="4" total_size="5">
+      <ClassStats class="org.eclipse.jdt.annotation.NonNull" sourceFile="NonNull.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.eclipse.jdt.annotation.NonNullByDefault" sourceFile="NonNullByDefault.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.eclipse.jdt.annotation.Nullable" sourceFile="Nullable.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.eclipse.jdt.annotation.package-info" sourceFile="package-info.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.intellij.lang.annotations" total_bugs="0" total_types="22" total_size="46">
+      <ClassStats class="org.intellij.lang.annotations.Identifier" sourceFile="Identifier.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.JdkConstants" sourceFile="JdkConstants.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.JdkConstants$AdjustableOrientation" sourceFile="JdkConstants.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.JdkConstants$BoxLayoutAxis" sourceFile="JdkConstants.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.JdkConstants$CalendarMonth" sourceFile="JdkConstants.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.JdkConstants$CursorType" sourceFile="JdkConstants.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.JdkConstants$FlowLayoutAlignment" sourceFile="JdkConstants.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.JdkConstants$FontStyle" sourceFile="JdkConstants.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.JdkConstants$HorizontalAlignment" sourceFile="JdkConstants.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.JdkConstants$InputEventMask" sourceFile="JdkConstants.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.JdkConstants$ListSelectionMode" sourceFile="JdkConstants.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.JdkConstants$PatternFlags" sourceFile="JdkConstants.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.JdkConstants$TitledBorderJustification" sourceFile="JdkConstants.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.JdkConstants$TitledBorderTitlePosition" sourceFile="JdkConstants.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.JdkConstants$TreeSelectionMode" sourceFile="JdkConstants.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.Language" sourceFile="Language.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.MagicConstant" sourceFile="MagicConstant.java" interface="true" size="6" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.Pattern" sourceFile="Pattern.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.PrintFormat" sourceFile="PrintFormat.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.PrintFormatPattern" sourceFile="PrintFormat.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.RegExp" sourceFile="RegExp.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.intellij.lang.annotations.Subst" sourceFile="Subst.java" interface="true" size="2" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.jetbrains.annotations" total_bugs="0" total_types="6" total_size="9">
+      <ClassStats class="org.jetbrains.annotations.Nls" sourceFile="Nls.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.jetbrains.annotations.NonNls" sourceFile="NonNls.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="org.jetbrains.annotations.NotNull" sourceFile="NotNull.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.jetbrains.annotations.Nullable" sourceFile="Nullable.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.jetbrains.annotations.PropertyKey" sourceFile="PropertyKey.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.jetbrains.annotations.TestOnly" sourceFile="TestOnly.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="service" total_bugs="0" total_types="1" total_size="4">
+      <ClassStats class="service.ServiceInterface" sourceFile="ServiceInterface.java" interface="true" size="4" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.FindBugs2" totalMilliseconds="584" invocations="2" avgMicrosecondsPerInvocation="292051" maxMicrosecondsPerInvocation="349660" standardDeviationMircosecondsPerInvocation="57609"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="286" invocations="459" avgMicrosecondsPerInvocation="623" maxMicrosecondsPerInvocation="89670" standardDeviationMircosecondsPerInvocation="4329"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="208" invocations="466" avgMicrosecondsPerInvocation="448" maxMicrosecondsPerInvocation="73980" standardDeviationMircosecondsPerInvocation="3536"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="65" invocations="105" avgMicrosecondsPerInvocation="628" maxMicrosecondsPerInvocation="58100" standardDeviationMircosecondsPerInvocation="5640"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="63" invocations="131" avgMicrosecondsPerInvocation="488" maxMicrosecondsPerInvocation="15413" standardDeviationMircosecondsPerInvocation="1949"/>
+      <ClassProfile name="edu.umd.cs.findbugs.DetectorToDetector2Adapter" totalMilliseconds="55" invocations="10898" avgMicrosecondsPerInvocation="5" maxMicrosecondsPerInvocation="683" standardDeviationMircosecondsPerInvocation="8"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="42" invocations="131" avgMicrosecondsPerInvocation="322" maxMicrosecondsPerInvocation="9387" standardDeviationMircosecondsPerInvocation="1247"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ExplicitSerialization" totalMilliseconds="41" invocations="131" avgMicrosecondsPerInvocation="316" maxMicrosecondsPerInvocation="8486" standardDeviationMircosecondsPerInvocation="1200"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="41" invocations="152" avgMicrosecondsPerInvocation="272" maxMicrosecondsPerInvocation="16071" standardDeviationMircosecondsPerInvocation="1392"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="33" invocations="39" avgMicrosecondsPerInvocation="849" maxMicrosecondsPerInvocation="18564" standardDeviationMircosecondsPerInvocation="2902"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.impl.ZipCodeBaseFactory" totalMilliseconds="32" invocations="18" avgMicrosecondsPerInvocation="1801" maxMicrosecondsPerInvocation="27925" standardDeviationMircosecondsPerInvocation="6338"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="32" invocations="38" avgMicrosecondsPerInvocation="845" maxMicrosecondsPerInvocation="11630" standardDeviationMircosecondsPerInvocation="1906"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="28" invocations="131" avgMicrosecondsPerInvocation="217" maxMicrosecondsPerInvocation="8082" standardDeviationMircosecondsPerInvocation="885"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="28" invocations="38" avgMicrosecondsPerInvocation="741" maxMicrosecondsPerInvocation="15134" standardDeviationMircosecondsPerInvocation="2382"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="27" invocations="39" avgMicrosecondsPerInvocation="714" maxMicrosecondsPerInvocation="14314" standardDeviationMircosecondsPerInvocation="2242"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>
